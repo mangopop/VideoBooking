@@ -8,15 +8,29 @@ include "Database.php";
 //is there a better way so we don't have to keep including and creating objects?
 $db = new Database();
 $html = new Display();
-$video = new Video($db);
+$video = new Video($db, $html);
 $customer = new Customer($db, $html);
 
 
 //ajax won't refresh page if already on it and wan't to go back so this will stop working
 
-//create
+//pretty sure this isn't going to work the bigger it gets, why not just create some new files?
+
+//create /update
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if($_POST['type'] == "video"){
+    if($_POST['type'] == "editVideo"){
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $rating = $_POST['rating'];
+        $stock = $_POST['stock'];
+        $video->update($id, $title, $rating, $stock);
+    }
+    elseif($_POST['type'] == "deleteVideo"){
+        $video_id = $_POST['video_id'];
+        $cust_id = $_POST['cust_id'];
+        $video->delete($video_id, $cust_id);
+    }
+    elseif($_POST['type'] == "video"){
         $title = $_POST['title'];
         $rating = $_POST['rating'];
         $video->create($title, $rating);
@@ -43,8 +57,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
 
 }
-
-
 
 
 /* AJAX plan

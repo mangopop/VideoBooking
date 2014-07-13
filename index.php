@@ -10,8 +10,8 @@ $html = new Display();
 $html->header();
 $html->choices();
 
+//this is bad as it is! Any more than these simple switches should be avoided
 if($_GET['action']){
-
     switch($_GET['action']){
         case "addVideo";
             $html->addVideoForm();
@@ -23,6 +23,7 @@ if($_GET['action']){
             $type = "addCustomer";
             $html->addCustomerForm($type);
             break;
+
         case "searchCustomer";
             $type = "searchCustomer";
             $html->searchCustomerForm($type);

@@ -38,7 +38,7 @@ class Customer{
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (count($result)) {
             echo "</br>";
-            echo "<table width='100%' class='pure-table pure-table-horizontal'>";
+            echo "<table class='table' id='customer-table' width='100%' >";
             echo "<thead>";
             echo "<th>Name</th><th>Email</th><th>Tel</th><th>Address</th><th></th></tr>";
             echo "</thead>";

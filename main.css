@@ -3,3 +3,29 @@ body{
     width:800px;
     margin: 20px auto;
 }
+
+#rentalBox{
+    padding: 2em;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width: 200px;
+    height: 300px;
+    /*overflow: scroll;*/
+    background: cornflowerblue;
+}
+
+table{
+
+}
+
+#results{
+    margin: 10px;
+}
+
+form{
+    width: 50%;
+}
